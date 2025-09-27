@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class GetMessages {
+public class BookingStepDefnitions {
     private Response response;
 
     @When("I want to read the messages")
