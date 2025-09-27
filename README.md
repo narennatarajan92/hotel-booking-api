@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Kata API Testing in Java
 
 API Testing and Java Exercise: Setting up a Basic API Test Automation Framework.
@@ -53,3 +54,6 @@ This kata has the purpose to evaluate both your technical skills as well as your
 * Quality of the codebase (design patterns, structure, code quality, …)
 * Use of Rest-Assured and Cucumber features
 * Commit history and progress demonstration
+=======
+# hotel-booking-api
+>>>>>>> 6b312fe540b979a6da91f9834e37462ce012ce13
