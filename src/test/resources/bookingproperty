@@ -1,0 +1,4 @@
+application.baseURI=https://automationintesting.online
+accept = application/json
+user.username=admin
+user.password=password
