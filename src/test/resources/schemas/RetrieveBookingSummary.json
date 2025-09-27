@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bookings",
+  "type": "object",
+  "properties": {
+    "bookings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "bookingDates": {
+            "type": "object",
+            "properties": {
+              "checkin": {
+                "type": "string",
+                "format": "date"
+              },
+              "checkout": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": ["checkin", "checkout"]
+          }
+        },
+        "required": ["bookingDates"]
+      }
+    }
+  },
+  "required": ["bookings"]
+}
