@@ -4,6 +4,7 @@ import com.booking.model.Booking;
 import com.utils.BookingFactory;
 import com.utils.TestContext;
 import com.utils.Resources;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import io.restassured.response.Response;
@@ -46,6 +47,14 @@ public class BookingStepDefinitions {
     @When("User sends a POST request to {string} with the booking details")
     public void sendPost(String endpoint) {
         Resources res = Resources.valueOf(endpoint);
+        // Print the request body for debugging using Jackson
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            String json = mapper.writeValueAsString(requestBody);
+            System.out.println("Request Body: " + json);
+        } catch (Exception e) {
+            System.out.println("Failed to serialize request body: " + e.getMessage());
+        }
         response = given()
                 .spec(context.postPutRequestSpec)
                 .body(requestBody)
@@ -56,6 +65,7 @@ public class BookingStepDefinitions {
 
     @Then("the response status code should be {int}")
     public void verifyStatus(int statusCode) {
+        System.out.println(response);
         Assertions.assertEquals(statusCode, response.getStatusCode(), "Unexpected status code");
     }
 
@@ -66,6 +76,7 @@ public class BookingStepDefinitions {
 
     @And("the response should contain the created booking details")
     public void verifyContents() {
+        System.out.println( response);
         Assertions.assertEquals(context.getSessionContext("firstname"), response.jsonPath().getString("firstname"));
         Assertions.assertEquals(context.getSessionContext("lastname"), response.jsonPath().getString("lastname"));
         String deposit = context.getSessionContext("depositpaid");
@@ -74,5 +85,7 @@ public class BookingStepDefinitions {
         }
         Assertions.assertEquals(context.getSessionContext("checkin"), response.jsonPath().getString("bookingdates.checkin"));
         Assertions.assertEquals(context.getSessionContext("checkout"), response.jsonPath().getString("bookingdates.checkout"));
+//        Assertions.assertEquals(context.getSessionContext("email"), response.jsonPath().getString("email"));
+//        Assertions.assertEquals(context.getSessionContext("phone"), response.jsonPath().getString("phone"));
     }
 }

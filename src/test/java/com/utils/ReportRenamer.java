@@ -36,7 +36,7 @@ public class ReportRenamer {
     }
 
     static {
-        Runtime.getRuntime().addShutdownHook(new Thread(CucumberReportGenerator::generateReport));
+        Runtime.getRuntime().addShutdownHook(new Thread(ReportGenerator::generateReport));
     }
 
 }
