@@ -11,7 +11,7 @@ Feature: Create Booking
     And the response should contain the created booking details
 
   @negative @validation
-  Scenario Outline: Create booking with invalid or missing fields returns 4xx
+  Scenario: Create booking with invalid or missing fields returns 4xx
     Given User wants to do a booking with below booking details
       | firstname   | lastname    | depositpaid | email            | phone         | checkin    | checkout   |
       | <firstname> | <lastname>  | <deposit>   | <email>          | <phone>       | <checkin>  | <checkout> |
