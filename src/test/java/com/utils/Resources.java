@@ -7,13 +7,7 @@ public enum Resources {
     GetAuthTokenAPI("/api/auth/login"),
     ValidateAuthTokenAPI("/api/auth/validate"),
     LogoutAuthTokenAPI("/api/auth/logout"),
-    CreateBookingAPI("/api/booking"),
-    GetBookingByIDAPI("/api/booking/{id}"),
-    GetBookingsByRoomIDAPI("/api/booking"),
-    UpdateBookingAPI("/api/booking/{id}"),
-    DeleteBookingAPI("/api/booking/{id}"),
-    GetBookingSummaryAPI("/api/booking/summary"),
-    GetBookingUnavailableAPI("/api/booking/unavailable");
+    CreateBookingAPI("/api/booking");
 
     private String resource;
 

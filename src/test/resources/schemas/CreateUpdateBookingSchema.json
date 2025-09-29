@@ -2,72 +2,48 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "CreatedBooking",
   "type": "object",
+  "required": ["bookingid", "roomid", "firstname", "lastname","depositpaid", "bookingdates"],
   "properties": {
     "bookingid": {
       "type": "integer",
       "format": "int32"
     },
-    "booking": {
+    "roomid": {
+      "type": "integer",
+      "minimum": 1,
+      "format": "int32"
+    },
+    "firstname": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 18
+    },
+    "lastname": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 30
+    },
+    "email": {
+      "type": "string",
+      "minLength": 1,
+      "format": "email"
+    },
+    "depositpaid": {
+      "type": "boolean"
+    },
+    "bookingdates": {
       "type": "object",
+      "required": ["checkin", "checkout"],
       "properties": {
-        "bookingid": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "roomid": {
-          "type": "integer",
-          "minimum": 1,
-          "format": "int32"
-        },
-        "firstname": {
+        "checkin": {
           "type": "string",
-          "minLength": 3,
-          "maxLength": 18
+          "format": "date"
         },
-        "lastname": {
+        "checkout": {
           "type": "string",
-          "minLength": 3,
-          "maxLength": 30
-        },
-        "depositpaid": {
-          "type": "boolean"
-        },
-        "email": {
-          "type": "string",
-          "minLength": 1,
-          "format": "email"
-        },
-        "phone": {
-          "type": "string",
-          "minLength": 11,
-          "maxLength": 21
-        },
-        "bookingdates": {
-          "type": "object",
-          "properties": {
-            "checkin": {
-              "type": "string",
-              "format": "date"
-            },
-            "checkout": {
-              "type": "string",
-              "format": "date"
-            }
-          },
-          "required": ["checkin", "checkout"]
+          "format": "date"
         }
-      },
-      "required": [
-        "bookingid",
-        "roomid",
-        "firstname",
-        "lastname",
-        "depositpaid",
-        "email",
-        "phone",
-        "bookingdates"
-      ]
+      }
     }
-  },
-  "required": ["bookingid", "booking"]
+  }
 }
