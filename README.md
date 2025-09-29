@@ -1,5 +1,4 @@
 # Booking API Automation Framework
-
 A professional-grade API automation framework built using Java, Cucumber (BDD), and Rest-Assured, featuring modular design, structured logging, and seamless CI integration.
 
 ## ✅ Features
@@ -122,5 +121,3 @@ After running the tests, two types of HTML reports are generated under the `targ
 ## 👩‍💻 Author
 Narenthiran Natarajan  
 📁 [GitHub](https://github.com/narennatarajan92/hotel-booking-api/)
-
----
