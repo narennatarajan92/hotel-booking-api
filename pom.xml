@@ -167,7 +167,7 @@
                     </includes>
                     <systemPropertyVariables>
                         <cucumber.publish.enabled>false</cucumber.publish.enabled>
-                        <cucumber.plugin>pretty,html:target/cucumber-reports.html</cucumber.plugin>
+                        <cucumber.plugin>pretty,html:target/cucumber-reports.html,json:target/cucumber.json</cucumber.plugin>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>

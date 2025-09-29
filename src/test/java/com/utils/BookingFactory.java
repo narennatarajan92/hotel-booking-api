@@ -16,8 +16,8 @@ public final class BookingFactory {
         b.setFirstname(defaultIfNull(row.get("firstname")));
         b.setLastname(defaultIfNull(row.get("lastname")));
         b.setDepositpaid(parseBoolean(row.get("depositpaid")));
-        b.setEmail(defaultIfNull(row.get("email")));
-        b.setPhone(defaultIfNull(row.get("phone")));
+//        b.setEmail(defaultIfNull(row.get("email")));
+//        b.setPhone(defaultIfNull(row.get("phone")));
         b.setBookingdates(new BookingDates(defaultIfNull(row.get("checkin")), defaultIfNull(row.get("checkout"))));
         return b;
     }

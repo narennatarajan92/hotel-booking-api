@@ -14,6 +14,7 @@ public class ReportGenerator {
         File reportOutputDirectory = new File("target/cucumber-html-report-" + timestamp);
         List<String> jsonFiles = Collections.singletonList("target/cucumber.json");
 
+
         // Set config
         Configuration config = new Configuration(reportOutputDirectory, "Booking API Automation");
         config.setBuildNumber(timestamp); // Adds timestamp to the report

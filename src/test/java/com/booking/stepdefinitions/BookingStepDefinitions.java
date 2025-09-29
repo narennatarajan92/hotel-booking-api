@@ -88,4 +88,13 @@ public class BookingStepDefinitions {
 //        Assertions.assertEquals(context.getSessionContext("email"), response.jsonPath().getString("email"));
 //        Assertions.assertEquals(context.getSessionContext("phone"), response.jsonPath().getString("phone"));
     }
+
+    @And("the response body should contain {string}")
+    public void responseBodyShouldContain(String expectedField) {
+        String body = response == null ? null : response.getBody().asString();
+        boolean contains = body != null && body.toLowerCase().contains(expectedField.toLowerCase());
+        org.junit.jupiter.api.Assertions.assertTrue(contains,
+                "Response did not contain expected text: " + expectedField + ". Body: " + body);
+    }
+
 }

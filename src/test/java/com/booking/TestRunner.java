@@ -9,7 +9,7 @@ import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
 @SelectPackages("com.booking")
 @SelectClasspathResource("features/create_booking.feature")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.booking.stepdefinitions")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-reports.html, json:target/cucumber.json")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-reports/cucumber-reports.html, json:target/cucumber.json")
 @ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@booking_regression")
 
 public class TestRunner {
