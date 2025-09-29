@@ -12,10 +12,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
-
-
 
 import java.io.File;
 
@@ -43,14 +39,14 @@ public class Hooks {
         authReq.setUsername(PropertyReader.getValue("user.username"));
         authReq.setPassword(PropertyReader.getValue("user.password"));
 
-        Resources resourceAPI = Resources.valueOf("GetAuthTokenAPI");
+        Resources resource = Resources.valueOf("GetAuthTokenAPI");
 
         RequestSpecification request = new RequestSpecBuilder().setBaseUri(PropertyReader.getValue("application.baseURI")).
                 setContentType(ContentType.JSON).build();
         RequestSpecification res = given().spec(request).body(authReq);
         ResponseSpecification responseSpecification = new ResponseSpecBuilder().
                 expectStatusCode(200).expectContentType(ContentType.JSON).build();
-        Response response = res.when().post(resourceAPI.getResource())
+        Response response = res.when().post(resource.getResource())
                 .then().spec(responseSpecification).extract().response();
 
         String token = response.path("token");
